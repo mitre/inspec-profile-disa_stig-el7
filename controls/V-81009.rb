@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 control "V-81009" do
   title "The Red Hat Enterprise Linux operating system must mount /dev/shm with
 the nodev option."
@@ -39,4 +38,3 @@ a finding.
     its('options') { should include 'nodev' }
   end
 end
-

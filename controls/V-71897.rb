@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 control "V-71897" do
   title "The Red Hat Enterprise Linux operating system must have the screen
 package installed."
@@ -32,7 +31,7 @@ installed with the following command:
     If either the screen package or the tmux package is not installed, this is
 a finding.
   "
-  desc  "fix", "
+  desc "fix", "
     Install the screen package to allow the initiation of a session lock after
 a 15-minute period of inactivity.
 
@@ -61,11 +60,10 @@ command:
   multiplexer_packages = input('terminal_mux_pkgs')
 
   describe.one do
-    multiplexer_packages.each do |pkg|  
+    multiplexer_packages.each do |pkg|
       describe package(pkg) do
         it { should be_installed }
       end
     end
   end
 end
-

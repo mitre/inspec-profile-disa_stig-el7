@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 control "V-81011" do
   title "The Red Hat Enterprise Linux operating system must mount /dev/shm with
 the nosuid option."
@@ -24,7 +23,7 @@ is a finding.
 
     If no results are returned, this is a finding.
   "
-  desc  "fix", "Configure the system so that /dev/shm is mounted with the
+  desc "fix", "Configure the system so that /dev/shm is mounted with the
 \"nosuid\" option."
   impact 0.3
   tag severity: nil
@@ -40,4 +39,3 @@ is a finding.
     its('options') { should include 'nosuid' }
   end
 end
-

@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 control "V-81015" do
   title "The Red Hat Enterprise Linux operating system must be configured to
 use the au-remote plugin."
@@ -24,7 +23,7 @@ daemon will not off-load the logs from the system being audited.
     If the \"active\" setting is not set to \"yes\", or the line is commented
 out, this is a finding.
   "
-  desc  "fix", "
+  desc "fix", "
     Edit the /etc/audisp/plugins.d/au-remote.conf file and change the value of
 \"active\" to \"yes\".
 
@@ -35,7 +34,7 @@ out, this is a finding.
   impact 0.5
   tag severity: nil
   tag gtitle: "SRG-OS-000342-GPOS-00133"
-  tag satisfies: ["SRG-OS-000342-GPOS-00133", "SRG-OS-000479-GPOS-00224"]
+  tag satisfies: %w(SRG-OS-000342-GPOS-00133 SRG-OS-000479-GPOS-00224)
   tag gid: "V-81015"
   tag rid: "SV-95727r1_rule"
   tag stig_id: "RHEL-07-030200"
@@ -55,4 +54,3 @@ out, this is a finding.
     end
   end
 end
-

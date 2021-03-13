@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 control "V-72011" do
   title "The Red Hat Enterprise Linux operating system must be configured so
 that all local interactive users have a home directory assigned in the
@@ -28,7 +27,7 @@ the following command:
     If any interactive users do not have a home directory assigned, this is a
 finding.
   "
-  desc  "fix", "Assign home directories to all local interactive users that
+  desc "fix", "Assign home directories to all local interactive users that
 currently do not have a home directory assigned."
   impact 0.5
   tag severity: nil
@@ -48,11 +47,11 @@ currently do not have a home directory assigned."
   uid_min = login_defs.read_params['UID_MIN'].to_i
   uid_min = 1000 if uid_min.nil?
 
-  users.where{ !shell.match(ignore_shells) && (uid >= uid_min || uid == 0)}.entries.each do |user_info|
-    next if exempt_home_users.include?("#{user_info.username}")
+  users.where { !shell.match(ignore_shells) && (uid >= uid_min || uid == 0)}.entries.each do |user_info|
+    next if exempt_home_users.include?(user_info.username.to_s)
+
     describe directory(user_info.home) do
       it { should exist }
     end
   end
 end
-
